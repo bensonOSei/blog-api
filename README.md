@@ -59,6 +59,13 @@ You can now access the server at http://localhost:8000
 
 ### Request Body
 
+**All requests must be sent with the following headers:**
+
+| Header         | Value            |
+| -------------- | ---------------- |
+| Accept         | application/json |
+| Content-Type   | application/json |
+
 #### Get all posts
 
 **Endpoint:** /api/posts
