@@ -18,4 +18,5 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::apiResource('posts', 'PostController');
 });
 
+// Route for fallback if route not found
 Route::fallback(fn () => response()->json(['message' => 'Not Found!'], 404));

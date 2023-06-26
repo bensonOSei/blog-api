@@ -9,10 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
+// php artisan make:model Post -m
     protected $fillable = [
         'title',
         'slug',
-        'body'
+        'body',
     ];
 
 }

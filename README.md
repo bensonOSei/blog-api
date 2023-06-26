@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple blog API that allows users to create, read, update and delete blog posts. This API is built using Laravel 8 and SQLite.
+This is a simple blog API that allows users to create, read, update and delete blog posts. This API is built using Laravel 8 and MySQL.
 
 ## Installation
 
@@ -181,3 +181,7 @@ Example response:
     "message": "Post deleted successfully"
 }
 ```
+
+## Live Demo
+
+[Blog API](https://benson-blog.up.railway.app/api)

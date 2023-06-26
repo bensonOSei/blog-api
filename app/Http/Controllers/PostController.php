@@ -23,13 +23,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        if(!Post::create($request->validated())) {
-            return response([
-                'error' => 'Failed to create'
-            ]);
-        } 
+        $post = Post::create($request->validated());
 
-        return new PostResource(Post::latest()->first());
+        return new PostResource($post);
     }
 
     /**
@@ -37,6 +33,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        // Get the post
+        $post = Post::findOrFail($post->id);
+
+        // Return the post as a resource
         return new PostResource($post);
     }
 
@@ -45,12 +45,15 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        if(!$post->update($request->validated())) {
+        // Update the post
+        if (!$post->update($request->validated())) {
+            // If failed to update
             return response([
                 'error' => 'Failed to update'
             ]);
-        } 
+        }
 
+        // If successful
         return response([
             'success' => 'Post Updated'
         ]);
@@ -61,15 +64,14 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if(!$post->delete()) {
+        if (!$post->delete()) {
             return response([
                 'error' => 'Failed to delete'
             ]);
-        } 
+        }
 
         return response([
             'success' => 'Post Deleted'
         ]);
-        
     }
 }
